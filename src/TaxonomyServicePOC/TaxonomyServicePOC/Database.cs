@@ -143,6 +143,12 @@ namespace TaxonomyServicePOC
             set { this[Constants.IdKey] = value; }
         }
 
+        public string Name
+        {
+            get { return this.GetStringOrDefault(Constants.NameKey); }
+            set { this[Constants.NameKey] = value; }
+        }
+
         public string ParentId
         {
             get { return this.GetStringOrDefault(Constants.ParentIdKey); }
@@ -159,12 +165,6 @@ namespace TaxonomyServicePOC
         {
             get { return this.GetBoolOrDefault(Constants.DisabledKey); }
             set { this[Constants.DisabledKey] = value; }
-        }
-
-        public new object this[string key]
-        {
-            get { return this[key.ToLowerInvariant()]; }
-            set { this[key.ToLowerInvariant()] = value; }
         }
     }
 
@@ -216,6 +216,7 @@ namespace TaxonomyServicePOC
     {
         public static readonly string IdKey = "id";
         public static readonly string ParentIdKey = "parentid";
+        public static readonly string NameKey = "parentid";
         public static readonly string SequenceKey = "sequence";
         public static readonly string DisabledKey = "disabled";
     }
