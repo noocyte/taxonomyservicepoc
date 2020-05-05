@@ -38,6 +38,7 @@ namespace TaxonomyServicePOC.Controllers
         {
             _logger.LogInformation($"{nameof(Create)} called - TaxonomyName: {taxonomyName}");
             _db.InsertOrReplace(taxonomyName, obj);
+            Indexer.IndexTaxonomy(taxonomyName, obj);
 
             return Ok();
         }
